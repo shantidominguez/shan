@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="e">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Calculadora Shanti</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body{
+            background-color: bisque;
+        }
+    </style> 
+  </head>
+  <body>
+    <div class="container">
+        <h1>Calculadora - Shanti</h1>
+
+        <div class="col-3">
+            <div class="mt-1">
+                <input type="text" id="Result" >
+            </div>
+            <div class="mt-1">
+            <button class="btn btn-outline-dark" onclick="jboton(1)">1</button>
+            <button class="btn btn-outline-dark" onclick="jboton(2)">2</button>
+            <button class="btn btn-outline-dark" onclick="jboton(3)">3</button>
+        </div>
+
+        
+        <div class="mt-1">
+            <button class="btn btn-outline-dark" onclick="jboton(4)">4</button>
+            <button class="btn btn-outline-dark" onclick="jboton(5)">5</button>
+            <button class="btn btn-outline-dark" onclick="jboton(6)">6</button>
+        </div>
+
+        <div class="mt-1">
+            <button class="btn btn-outline-dark" onclick="jboton(7)">7</button>
+            <button class="btn btn-outline-dark" onclick="jboton(8)">8</button>
+            <button class="btn btn-outline-dark" onclick="jboton(9)">9</button>
+        </div>
+
+        
+        <div class="mt-1">
+            <button class="btn btn-outline-dark" onclick="jboton(0)">0</button>
+
+            <button class="btn btn-outline-dark"onclick="jsuma()">+</button>
+            <button class="btn btn-outline-dark"onclick="jresta()">-</button>
+        </div>
+
+
+        <div class="mt-1"></div>
+            <button class="btn btn-outline-dark"onclick="jmulti()">*</button>
+            <button class="btn btn-outline-dark"onclick="jdiv()">/</button>
+
+
+            <button class="btn btn-outline-dark"onclick="jraiz()">sqrt</button>
+        </div>
+
+        <div class="mt-1">
+            <button class="btn btn-outline-dark"onclick="jcos()">cos</button>
+            <button class="btn btn-outline-dark"onclick="jtan()">tan</button>
+            <button class="btn btn-outline-dark"onclick="jsal()">sal</button>
+        </div>
+
+        <div class="mt-1">
+            <button class="btn btn-outline-dark" onclick="jpow()">pow</button>
+            <button class="btn btn-outline-dark" onclick="jborra()">C</button>
+            <button class="btn btn-outline-dark"onclick="jigual()">=</button>
+
+
+        </div>
+
+
+
+    </div>
+  
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.6.1.js" ></script>
+
+    <script>
+        //$("#Result").val("holaaa");
+
+        var num = "";
+        var var1 ="";
+        var oper =0;
+        var pote="";
+    
+
+        function jsuma(){
+            var1 = num;
+            oper = 1;
+            jborra();
+        }
+
+        function jresta(){
+            var1 = num;
+            oper = 2;
+            jborra();
+
+        }
+
+        function jmulti(){
+
+            var1 = num;
+            oper = 3;
+            jborra();
+        }
+
+        function jdiv(){
+            var1 = num;
+            oper = 4;
+            jborra();
+
+        }
+
+        function jraiz(){
+
+            var1 = num;
+            oper = 5;
+            $("#Result").val( "√"+var1);
+            
+
+        }
+
+        function jcos(){
+            var1 = num;
+            oper = 6;
+            $("#Result").val( "cos("+var1);
+            
+        }
+
+        function jtan(){
+            var1 = num;
+            oper = 7;
+            $("#Result").val( "tan("+var1);
+
+        }
+
+        function jsal(){
+
+            $("#Result").val( "Shanti Guez" );
+            var1 = num;
+            oper = 8;
+            
+        }
+        
+        function jpow(){
+            var1 = num;
+            oper = 8;
+            jborra();
+
+        }
+
+        function jigual (){
+            if(oper==1){
+                tmp = parseInt(var1) + parseInt(num);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+                
+            }
+            if(oper==2){
+                tmp = parseInt(var1) - parseInt(num);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+
+            }
+            if(oper==3){
+                tmp = parseInt(var1) * parseInt(num);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+            }
+            if(oper==4){
+                tmp = parseInt(var1) / parseInt(num);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+            }
+
+            if (oper==5){
+                tmp =Math.sqrt(var1)
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+            }
+            if (oper==6){ 
+                tmp =Math.cos(var1);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+            }
+            if (oper==7){
+                tmp =Math.tan(var1);
+                $("#Result").val( tmp );
+                num = tmp;
+                oper = 0;
+                
+
+            }
+            if (oper==8){
+
+                tmp = Math.pow(var1, num);
+                $("#Result").val(+tmp);
+                num = tmp;
+                oper = 0;
+
+            }
+          
+
+
+        }
+
+        function jboton( valor ){
+            ///alert(  valor );
+            num = num + valor;
+            $("#Result").val( num );
+
+        }
+        
+        function jborra(){
+            $("#Result").val("");
+            num ="";
+        }
+
+        
+           
+        
+    </script>
+  </body>
+</html>
